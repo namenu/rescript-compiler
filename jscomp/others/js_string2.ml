@@ -625,6 +625,7 @@ external trim : t -> t = "trim" [@@bs.send]
 ]}
 *)
 external anchor : t -> t -> t = "anchor" [@@bs.send] (** ES2015 *)
+[@@deprecated "Use `DOM API` inststead."]
 
 (**
   [link urlText linkText] creates a string withan HTML [<a>] element with [href] attribute of [urlText] and [linkText] as its content.
@@ -634,6 +635,7 @@ external anchor : t -> t -> t = "anchor" [@@bs.send] (** ES2015 *)
 ]}
 *)
 external link : t -> t -> t = "link" [@@bs.send] (** ES2015 *)
+[@@deprecated "Use `DOM API` inststead."]
 
 external castToArrayLike : t -> t Js_array2.array_like = "%identity"
 (* FIXME: we should not encourage people to use [%identity], better
