@@ -670,6 +670,26 @@ external toLocaleUpperCase : t = "toLocaleUpperCase" [@@bs.send.pipe: t]
 *)
 external trim : t = "trim" [@@bs.send.pipe: t]
 
+(**
+  [trimEnd str] returns a string that is [str] with whitespace stripped from the end.
+
+@example {[
+  trimEnd "   abc def   " = "   abc def"
+  trimEnd "\n\r\t abc def \n\n\t\r " = "\n\r\t abc def"
+]}
+*)
+external trimEnd : t = "trimEnd" [@@bs.send.pipe: t]
+
+(**
+  [trimStart str] returns a string that is [str] with whitespace stripped from the beginning.
+
+@example {[
+  trimStart "   abc def   " = "abc def   "
+  trimStart "\n\r\t abc def \n\n\t\r " = "abc def \n\n\t\r "
+]}
+*)
+external trimStart : t = "trimStart" [@@bs.send.pipe: t]
+
 (* HTML wrappers *)
 
 (**
