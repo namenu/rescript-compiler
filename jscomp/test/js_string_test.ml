@@ -98,6 +98,20 @@ let suites = Mt.[
       Eq("foo", "foo" |. Js.String2.normalizeByForm "NFKD")
     );
 
+    "padEnd", (fun _ ->
+      Eq("foo  ", "foo" |. Js.String2.padEnd 5)
+    );
+    "padEndWith", (fun _ ->
+      Eq("foo..", "foo" |. Js.String2.padEndWith 5 ".")
+    );
+
+    "padStart", (fun _ ->
+      Eq("  foo", "foo" |. Js.String2.padStart 5)
+    );
+    "padStartWith", (fun _ ->
+      Eq("..foo", "foo" |. Js.String2.padStartWith 5 ".")
+    );
+
     (* es2015 *)
     "repeat", (fun _ ->
       Eq("foofoofoo", "foo" |. Js.String2.repeat 3)
@@ -199,6 +213,12 @@ let suites = Mt.[
 
     "trim", (fun _ ->
       Eq("foo", "  foo  " |. Js.String2.trim)
+    );
+    "trimEnd", (fun _ ->
+      Eq("  foo", "  foo  " |. Js.String2.trimEnd)
+    );
+    "trimStart", (fun _ ->
+      Eq("foo  ", "  foo  " |. Js.String2.trimStart)
     );
 
     (* es2015 *)

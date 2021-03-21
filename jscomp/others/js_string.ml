@@ -699,8 +699,7 @@ external trimStart : t = "trimStart" [@@bs.send.pipe: t]
   anchor "page1" "Page One" = "<a name=\"page1\">Page One</a>"
 ]}
 *)
-external anchor : t -> t = "anchor" [@@bs.send.pipe: t] (** ES2015 *)
-[@@deprecated "Use `DOM API` inststead."]
+external anchor : t -> t = "anchor" [@@bs.send.pipe: t] [@@deprecated "Use `DOM API` inststead."] (** ES2015 *)
 
 (**
   [link urlText linkText] creates a string withan HTML [<a>] element with [href] attribute of [urlText] and [linkText] as its content.
@@ -709,8 +708,7 @@ external anchor : t -> t = "anchor" [@@bs.send.pipe: t] (** ES2015 *)
   link "page2.html" "Go to page two" = "<a href=\"page2.html\">Go to page two</a>"
 ]}
 *)
-external link : t -> t = "link" [@@bs.send.pipe: t] (** ES2015 *)
-[@@deprecated "Use `DOM API` inststead."]
+external link : t -> t = "link" [@@bs.send.pipe: t] [@@deprecated "Use `DOM API` inststead."] (** ES2015 *)
 
 external castToArrayLike : t -> t Js_array2.array_like = "%identity"
 (* FIXME: we should not encourage people to use [%identity], better
