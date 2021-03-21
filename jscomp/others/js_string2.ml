@@ -298,6 +298,46 @@ external normalize : t -> t = "normalize" [@@bs.send] (** ES2015 *)
 external normalizeByForm : t -> t -> t = "normalize" [@@bs.send]
 
 (**
+  [padEnd n] pads the string with " " (U+0020) so that the resulting string reaches a given length [n].
+  The padding is applied from the end of the current string.
+
+@example {[
+  padEnd "200" 5 = "200  "
+]}
+*)
+external padEnd : t -> int -> t = "padEnd" [@@bs.send]
+
+(**
+  [padEndWith n s] pads the string with a given string [s] (repeated, if needed) so that the resulting string reaches a given length [n].
+  The padding is applied from the end of the current string.
+
+@example {[
+  padEndWith "Breaded Mushrooms" 25 = "Breaded Mushrooms........"
+]}
+*)
+external padEndWith : t -> int -> t -> t = "padEnd" [@@bs.send]
+
+(**
+  [padStart n] pads the string with " " (U+0020) so that the resulting string reaches a given length [n].
+  The padding is applied from the start of the current string.
+
+@example {[
+  padStart "200" 5 = "  200"
+]}
+*)
+external padStart : t -> int -> t = "padStart" [@@bs.send]
+
+(**
+  [padStartWith n s] pads the string with a given string [s] (repeated, if needed) so that the resulting string reaches a given length [n].
+  The padding is applied from the start of the current string.
+
+@example {[
+  padStartWith "Breaded Mushrooms" 25 = "........Breaded Mushrooms"
+]}
+*)
+external padStartWith : t -> int -> t -> t = "padStart" [@@bs.send]
+
+(**
   [repeat n s] returns a string that consists of [n] repetitions of [s]. Raises [RangeError] if [n] is negative.
 
 @example {[
