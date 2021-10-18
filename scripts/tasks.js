@@ -30,7 +30,8 @@ var sourceDirs = [
 var buildAppending = false;
 var isBuilding = false;
 
-var jscompDir = path.join("..", "jscomp");
+var jscompDir = path.join(__dirname, "..", "jscomp");
+
 /**
  *
  * @param {Date} d
@@ -102,7 +103,7 @@ sourceDirs.forEach(x => {
   fs.watch(path.join(jscompDir, x), "utf8", onSourceChange);
 });
 
-fs.watch(path.join("..", "package.json"), "utf8", onSourceChange);
+fs.watch(path.join(__dirname, "..", "package.json"), "utf8", onSourceChange);
 
 rebuild();
 
