@@ -214,9 +214,27 @@ Js.log(Js.Json.stringifyWithSpace(Js.Json.object_(dict), 2))
 ```
 *)
 
+external stringifyAnyExn : 'a -> string option =
+"stringify" [@@bs.val]  [@@bs.scope "JSON"]
+(**
+  `stringifyAnyExn(value)` formats any value into a JSON string.
+  Throws an exception when 
+  - a circular reference is found.
+  - trying to stringify a BigInt value.
+
+  Returns `None` only when the argument is `undefined`.
+
+  **see** [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify)
+*)
+
 val stringifyAny : 'a -> string option
 (**
-`stringifyAny(value)` formats any value into a JSON string.
+  `stringifyAny(value)` formats any value into a JSON string.
+  Returns `None` when
+  - a circular reference is found.
+  - trying to stringify a BigInt value.
+
+  **see** [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify)
 
 ```res example
 /* prints `["hello", "world"]` */

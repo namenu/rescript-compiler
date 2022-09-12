@@ -110,7 +110,6 @@ external parseExn : string -> t = "parse"
 
 external stringifyAnyExn : 'a -> string option =
 "stringify" [@@bs.val]  [@@bs.scope "JSON"]
-(* TODO: more docs when parse error happens or stringify non-stringfy value *)
 
 let stringifyAny x = try stringifyAnyExn x with _ -> None
 
